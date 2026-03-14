@@ -1,6 +1,7 @@
 import java.util.Scanner;
 class A{
 public boolean isPalindrome(){
+    //9
     System.out.println("enter no : ");
     Scanner sc = new Scanner(System.in);
     int x = sc.nextInt();
