@@ -1,25 +1,31 @@
 class Solution {
-    public int longestPalindrome(String s) {
-        int[] count = new int[128];
+    public String longestPalindrome(String s) {
+        
         //5
+        String ans = "";
+        for (int i = 0; i < s.length(); i++) {
+            int l = i;
+            int r = i;
 
-        for (char c : s.toCharArray()) {
-            count[c]++;
-        }
-        int length = 0;
-        boolean odd = false;
+            while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+                if (r - l + 1 > ans.length()) {
+                    ans = s.substring(l, r + 1);
+                }
+                l--;
+                r++;
+            }
 
-        for (int c : count) {
-            if (c % 2 == 0) {
-                length += c;
-            } else {
-                length += c - 1;
-                odd = true;
+            l = i;
+            r = i + 1;
+
+            while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+                if (r - l + 1 > ans.length()) {
+                    ans = s.substring(l, r + 1);
+                }
+                l--;
+                r++;
             }
         }
-        if (odd) {
-            length += 1;
-        }
-        return length;
+        return ans;
     }
 }
