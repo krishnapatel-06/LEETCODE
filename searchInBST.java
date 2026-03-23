@@ -1,5 +1,6 @@
 class Solution {
     public TreeNode searchBST(TreeNode root, int val) {
+        //700
         if(root == null || root.val == val){
             return root;
         }
